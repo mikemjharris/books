@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const graphqlHTTP = require('express-graphql');
 const { buildSchema, GraphQLObjectType, GraphQLString, GraphQLDateTime } = require('graphql');
 const app = express();
+const request=require('request')
+const csv=require('csvtojson')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,7 +23,20 @@ app.use(express.static(path.join(__dirname, '../dist')));
 // set the view engine to ejs
 app.set('view engine', 'ejs')
 
-let books = [{"title": "test"}]
+let books = []
+
+const onError = () => { console.log('error') }
+const onComplete = () => { console.log('complete') }
+
+csv()
+  .fromStream(request.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vSnuIE5i7X7VhTsbCcyQtLJeBkFpBiF1CMvRtv9Ze8NOMdnFXQZC1JHE40qGo83rkhsAw6CQVhZvqRW/pub?gid=50513809&single=true&output=csv'))
+  .subscribe((json)=>{
+    return new Promise((resolve,reject)=>{
+      return resolve(json);
+    })
+  },onError,onComplete)
+  .then((data)=> { books = data });
+
 
 const getBooks = () => { return books; };
 
@@ -31,6 +46,10 @@ const schema = buildSchema(`
             },
       type Book{
               title: String,
+              author: String,
+              gender: String,
+              year: String,
+              month: String,
             }
     `);
 
