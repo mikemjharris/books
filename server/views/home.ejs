@@ -3,15 +3,17 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Seed Project</title>
+    <title>Books</title>
     <link  rel='stylesheet' href='style.css' />
     <script src="bundle.js"></script>
 </head>
 
 <body>
-		<h1><%= data.title %></h4>
-
-     <a href="/graphql">Visit here for the graphql end point'</a>
+  <section>
+		<h1><%= data.title %></h1>
+    <p>Project that shows all the books i've read since 2012.  Was setup to experiment with graphql.  
+     <a href="/graphql?query=%7B%0A%09books%20%7B%0A%20%20%20%20title%0A%20%20%20%20author%0A%20%20%20%20gender%0A%20%20%20%20year%0A%20%20%20%20month%0A%20%20%7D%0A%7D%0A">Visit here for the graphql end point and list of books</a>
+  </section>
 		<%- include('partials/footer') %>
 </body>
 
