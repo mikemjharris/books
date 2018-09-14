@@ -57,7 +57,10 @@ const bookType = new GraphQLObjectType({
       name: 'book',
         fields: () => ({
                   title: { type: GraphQLString },
-                  date: { type: GraphQLDateTime }
+                  author: { type: GraphQLString },
+                  gender: { type: GraphQLString },
+                  year: { type: GraphQLString },
+                  month: { type: GraphQLString }
                 })
 });
 
@@ -74,10 +77,8 @@ app.use('/graphql', graphqlHTTP({
 
 require('./routes/main')(app);
 
-// blog home page
 app.get('/', (req, res) => {
-  // render `home.ejs` with the list of posts
-  res.render('home', { data: { title: 'My Seed Project'}})
+  res.render('home', { data: { title: 'Blog api'}})
 })
 
 
