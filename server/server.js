@@ -21,6 +21,38 @@ app.use(express.static(path.join(__dirname, '../dist')));
 // set the view engine to ejs
 app.set('view engine', 'ejs')
 
+let books = [{"title": "test"}]
+
+const getBooks = () => { return books; };
+
+const schema = buildSchema(`
+      type Query {
+              books: [Book]
+            },
+      type Book{
+              title: String,
+            }
+    `);
+
+const bookType = new GraphQLObjectType({
+      name: 'book',
+        fields: () => ({
+                  title: { type: GraphQLString },
+                  date: { type: GraphQLDateTime }
+                })
+});
+
+const root = {
+    books: getBooks,
+};
+
+app.use('/graphql', graphqlHTTP({
+      schema: schema,
+      rootValue: root,
+      graphiql: true,
+}));
+
+
 require('./routes/main')(app);
 
 // blog home page
