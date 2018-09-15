@@ -35,8 +35,7 @@ csv()
       return resolve(json);
     })
   },onError,onComplete)
-  .then((data)=> { books = data });
-
+  .then((data)=> { books = data.reverse() });
 
 const getBooks = () => { return books; };
 
