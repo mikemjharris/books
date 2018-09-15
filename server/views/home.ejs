@@ -8,13 +8,17 @@
     <link rel="icon" href="/images/favicon.png">
     <link  rel='stylesheet' href='style.css' />
     <script src="bundle.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
 </head>
 
 <body>
   <section>
 		<h1><%= data.title %></h1>
-    <p>Project that shows all the books i've read since 2012.  Was setup to experiment with graphql.  
+    <p>Project that shows all the books i've read since 2012.  Was setup to experiment with graphql.</p>
+    <p>
      <a href="/graphql?query=%7B%0A%09books%20%7B%0A%20%20%20%20title%0A%20%20%20%20author%0A%20%20%20%20gender%0A%20%20%20%20year%0A%20%20%20%20month%0A%20%20%7D%0A%7D%0A">Visit here for the graphql end point and list of books</a>
+    </p>
   </section>
 		<%- include('partials/footer') %>
 </body>
