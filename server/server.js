@@ -78,7 +78,7 @@ app.use('/graphql', graphqlHTTP({
 require('./routes/main')(app);
 
 app.get('/', (req, res) => {
-  res.render('home', { data: { title: 'Blog api'}})
+  res.render('home', { data: { title: 'Books Project'}})
 })
 
 
