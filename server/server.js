@@ -28,14 +28,20 @@ let books = []
 const onError = () => { console.log('error') }
 const onComplete = () => { console.log('complete') }
 
-csv()
-  .fromStream(request.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vSnuIE5i7X7VhTsbCcyQtLJeBkFpBiF1CMvRtv9Ze8NOMdnFXQZC1JHE40qGo83rkhsAw6CQVhZvqRW/pub?gid=50513809&single=true&output=csv'))
-  .subscribe((json)=>{
-    return new Promise((resolve,reject)=>{
-      return resolve(json);
-    })
-  },onError,onComplete)
-  .then((data)=> { books = data.reverse() });
+const refreshBooks = () => {
+  csv()
+    .fromStream(request.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vSnuIE5i7X7VhTsbCcyQtLJeBkFpBiF1CMvRtv9Ze8NOMdnFXQZC1JHE40qGo83rkhsAw6CQVhZvqRW/pub?gid=50513809&single=true&output=csv'))
+    .subscribe((json)=>{
+      return new Promise((resolve,reject)=>{
+        return resolve(json);
+      })
+    },onError,onComplete)
+    .then((data)=> { books = data.reverse() });
+}
+
+refreshBooks();
+
+setInterval(refreshBooks, 1000 * 60 * 60 * 1);
 
 const getBooks = () => { return books; };
 
