@@ -11,11 +11,11 @@
     "start-dev": "concurrently \"npm:dev-server\" \"npm:fe-dev\""
   },
   "dependencies": {
-    "body-parser": "~1.0.0",
+    "body-parser": "^1.18.3",
     "concurrently": "^4.0.1",
-    "cookie-parser": "~1.0.1",
+    "cookie-parser": "^1.4.3",
     "csvtojson": "^2.0.8",
-    "debug": "~0.7.4",
+    "debug": "^4.1.0",
     "ejs": "^2.5.8",
     "express": "~4.16.3",
     "express-graphql": "^0.6.12",
@@ -28,11 +28,11 @@
     "css-loader": "^0.28.11",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "mini-css-extract-plugin": "^0.4.0",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.9.3",
     "nodemon": "^1.18.4",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
     "webpack": "^4.4.1",
-    "webpack-cli": "^2.0.13"
+    "webpack-cli": "^3.1.2"
   }
 }
