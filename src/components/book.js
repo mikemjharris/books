@@ -6,9 +6,15 @@ const BookElement = styled.div`
  `
 
 const Book = (props) => {
+  const title = props.book.title;
+  const author = props.book.author;
+  const year = props.book.year;
+  const month = props.book.month;
+
   return (
     <BookElement>
-      <p>A book</p>
+      <span>{month} / {year}</span>
+      <p>{ title } : { author}</p>
     </BookElement>
   )
 }
