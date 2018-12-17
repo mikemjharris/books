@@ -1,10 +1,15 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const BookElement = styled.div`
+  border: 1px solid black
+ `
 
 const Book = (props) => {
   return (
-    <section className='book'>
+    <BookElement>
       <p>A book</p>
-    </section>
+    </BookElement>
   )
 }
 

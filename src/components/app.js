@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import Book from './book';
+import BookCase from './bookcase';
 
 export default class AppController {
   constructor() {
@@ -10,7 +10,7 @@ export default class AppController {
 
   mountComponent() {
     ReactDOM.render(
-      <Book />,
+      <BookCase />,
       document.getElementById('app')
     );
   }
