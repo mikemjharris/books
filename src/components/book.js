@@ -19,7 +19,7 @@ export default class Book extends React.Component {
 
   render = () => {
     const book = this.state.book;
-    const col = this.state.col ;
+    const col = this.state.col;
 
     return (
       <BookElement col={ col * 13 } >
