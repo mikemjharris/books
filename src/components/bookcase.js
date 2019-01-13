@@ -33,10 +33,9 @@ export default class BookCase extends React.Component {
 
   render = () => {
     const books = this.state.books;
-    console.log(books);
     return (
       <BookCase_ >
-      {books.map((book,i) => <Book book={book} key={i} />)}
+      {books.map((book,i) => <Book book={book} key={i} col={i} />)}
       </BookCase_ >
     )
   }
