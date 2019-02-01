@@ -15,13 +15,12 @@ export default class BookCase extends React.Component {
     this.state = {
       books: [],
       filters: {
-        year: 2018
+        year: 2016
       }
     }
   }
 
   componentDidMount() {
-    console.log('mount');
     const query = `{books{
           title
           author

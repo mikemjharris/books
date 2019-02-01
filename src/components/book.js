@@ -9,7 +9,6 @@ const BookElement = styled.div`
 export default class Book extends React.Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {
       book: this.props.book,
       col: this.props.col
