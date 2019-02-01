@@ -7,6 +7,11 @@ const BookCase_ = styled.div`
   background: red
  `
 
+const Controls = styled.div`
+  background: hsla(0, 10%, 90%, 1);
+  padding: 2em;
+ `
+
 const filterHelpers = new FilterHelpers();
 
 export default class BookCase extends React.Component {
@@ -15,7 +20,7 @@ export default class BookCase extends React.Component {
     this.state = {
       books: [],
       filters: {
-        year: 2016
+        gender: 'm'
       }
     }
   }
@@ -39,6 +44,10 @@ export default class BookCase extends React.Component {
     this.setState({filters: { year: parseInt(el.target.value) }});
   }
 
+  filterGender = (el) => {
+    this.setState({filters: { gender: el.target.value }});
+  }
+
   render = () => {
     const books = this.state.books;
     const filteredBooks = filterHelpers.applyAllFiltersToBooks(this.state.filters, books);
@@ -47,18 +56,31 @@ export default class BookCase extends React.Component {
         res.push(book.year);
       }
       return res;
-    }, []);
-    console.log(this.state, filteredBooks);
+    }, ['All']);
+    console.log(this.state);
     return (
       <div>
-        <select onChange={ this.filterYear }>
-          { years.map((year) => {
-                return(
-                  <option value={year}>{year}</option>
-                )
-            })
-          }
-        </select>
+        <Controls>
+          <h3>Filter books read</h3>
+          <label>By Year</label>
+          <select onChange={ this.filterYear }>
+            { years.map((year) => {
+                  return(
+                    <option value={year}>{year}</option>
+                  )
+              })
+            }
+          </select>
+          <label>By Gender</label>
+          <select onChange={ this.filterGender}>
+            { ['all', 'f', 'm', 'other'].map((gender) => {
+                  return(
+                    <option value={gender}>{gender}</option>
+                  )
+              })
+            }
+          </select>
+        </Controls>
         <BookCase_ >
           {filteredBooks.map((book,i) => <Book book={book} key={book.title} col={i} />)}
         </BookCase_ >

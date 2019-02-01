@@ -10,7 +10,7 @@ class FilterHelpers {
 
     const genderFilter = filters.gender;
     if (genderFilter) {
-      filteredBooks = this.filterByYear(filteredBooks, genderFilter);
+      filteredBooks = this.filterByGender(filteredBooks, genderFilter);
     }
 
     return filteredBooks;
@@ -18,6 +18,10 @@ class FilterHelpers {
 
   filterByYear(books, year) {
     return books.filter((book) => book.year == year);
+  }
+
+  filterByGender(books, gender) {
+    return books.filter((book) => book.gender == gender);
   }
 }
 
