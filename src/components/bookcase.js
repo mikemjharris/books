@@ -45,11 +45,11 @@ export default class BookCase extends React.Component {
   }
 
   filterYear = (el) => {
-    this.setState({filters: { year: parseInt(el.target.value) }});
+    this.setState({filters: { ...this.state.filters, year: parseInt(el.target.value) }});
   }
 
   filterGender = (el) => {
-    this.setState({filters: { gender: el.target.value }});
+    this.setState({filters: { ...this.state.filters, gender: el.target.value }});
   }
 
   render = () => {
