@@ -74,13 +74,19 @@ export default class BookCase extends React.Component {
           </select>
           <label>By Gender</label>
           <select onChange={ this.filterGender}>
-            { ['all', 'f', 'm', 'other'].map((gender) => {
+            { gender.map((gender) => {
                   return(
                     <option value={gender}>{gender}</option>
                   )
               })
             }
           </select>
+          <div>
+            <p>Stats for filter</p>
+            <div>
+             <p>Total books: {filteredBooks.length}</p>
+            </div>
+          </div>
         </Controls>
         <BookCase_ >
           {filteredBooks.map((book,i) => <Book book={book} key={book.title} col={i} />)}
