@@ -1,11 +1,16 @@
 class FilterHelpers {
 
   applyAllFiltersToBooks = (filters, books) => {
-    let filteredBooks;
+    let filteredBooks = books;
 
     const yearFilter = filters.year;
     if (yearFilter) {
-      filteredBooks = this.filterByYear(books, yearFilter);
+      filteredBooks = this.filterByYear(filteredBooks, yearFilter);
+    }
+
+    const genderFilter = filters.gender;
+    if (genderFilter) {
+      filteredBooks = this.filterByYear(filteredBooks, genderFilter);
     }
 
     return filteredBooks;
