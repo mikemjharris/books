@@ -10,6 +10,12 @@ const BookCase_ = styled.div`
 const Controls = styled.div`
   background: hsla(0, 10%, 90%, 1);
   padding: 2em;
+  label {
+    padding: 0.5em 1em 0.5em 0em;
+  }
+  select {
+    margin: 0.5em;
+  }
  `
 
 const filterHelpers = new FilterHelpers();
@@ -63,24 +69,28 @@ export default class BookCase extends React.Component {
       <div>
         <Controls>
           <h3>Filter books read</h3>
-          <label>By Year</label>
-          <select onChange={ this.filterYear }>
-            { years.map((year) => {
-                  return(
-                    <option value={year}>{year}</option>
+          <div className='grp'>
+            <label>By Year</label>
+            <select onChange={ this.filterYear }>
+              { years.map((year) => {
+                    return(
+                      <option value={year}>{year}</option>
                   )
-              })
-            }
-          </select>
-          <label>By Gender</label>
-          <select onChange={ this.filterGender}>
-            { gender.map((gender) => {
-                  return(
-                    <option value={gender}>{gender}</option>
-                  )
-              })
-            }
-          </select>
+                })
+              }
+            </select>
+          </div>
+          <div className='grp'>
+            <label>By Gender</label>
+            <select onChange={ this.filterGender}>
+              { gender.map((gender) => {
+                    return(
+                      <option value={gender}>{gender}</option>
+                    )
+                })
+              }
+            </select>
+          </div>
           <div>
             <p>Stats for filter</p>
             <div>
