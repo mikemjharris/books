@@ -35,6 +35,10 @@ export default class BookCase extends React.Component {
     })
   }
 
+  filterYear = (el) => {
+    this.setState({filters: { year: parseInt(el.target.value) }});
+  }
+
   render = () => {
     const books = this.state.books;
     const filteredBooks = filterHelpers.applyAllFiltersToBooks(this.state.filters, books);
@@ -44,10 +48,10 @@ export default class BookCase extends React.Component {
       }
       return res;
     }, []);
-
+    console.log(this.state, filteredBooks);
     return (
       <div>
-        <select>
+        <select onChange={ this.filterYear }>
           { years.map((year) => {
                 return(
                   <option value={year}>{year}</option>
@@ -56,7 +60,7 @@ export default class BookCase extends React.Component {
           }
         </select>
         <BookCase_ >
-          {filteredBooks.map((book,i) => <Book book={book} key={i} col={i} />)}
+          {filteredBooks.map((book,i) => <Book book={book} key={book.title} col={i} />)}
         </BookCase_ >
       </div>
     )
