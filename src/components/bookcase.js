@@ -19,9 +19,7 @@ export default class BookCase extends React.Component {
     super(props);
     this.state = {
       books: [],
-      filters: {
-        gender: 'm'
-      }
+      filters: {}
     }
   }
 
@@ -49,6 +47,7 @@ export default class BookCase extends React.Component {
   }
 
   render = () => {
+    const all = 'All';
     const books = this.state.books;
     const filteredBooks = filterHelpers.applyAllFiltersToBooks(this.state.filters, books);
     const years = books.reduce((res, book) => {
@@ -56,8 +55,10 @@ export default class BookCase extends React.Component {
         res.push(book.year);
       }
       return res;
-    }, ['All']);
-    console.log(this.state);
+    }, [all]);
+
+    const gender = [all, 'f', 'm', 'other'];
+
     return (
       <div>
         <Controls>
