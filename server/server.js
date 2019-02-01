@@ -29,9 +29,20 @@ let books = []
 const onError = () => { console.log('error') }
 const onComplete = () => { console.log('complete') }
 
+const fs = require('fs');
+
+const booksUrl =  'https://docs.google.com/spreadsheets/d/e/2PACX-1vSnuIE5i7X7VhTsbCcyQtLJeBkFpBiF1CMvRtv9Ze8NOMdnFXQZC1JHE40qGo83rkhsAw6CQVhZvqRW/pub?gid=50513809&single=true&output=csv';
+
+const getStream = () => {
+  if (process.env.ENV === 'DEV') {
+     return fs.createReadStream('./server/data/test.csv')
+  }
+  return request.get(booksUrl);
+}
+
 const refreshBooks = () => {
   csv()
-    .fromStream(request.get('https://docs.google.com/spreadsheets/d/e/2PACX-1vSnuIE5i7X7VhTsbCcyQtLJeBkFpBiF1CMvRtv9Ze8NOMdnFXQZC1JHE40qGo83rkhsAw6CQVhZvqRW/pub?gid=50513809&single=true&output=csv'))
+    .fromStream(getStream())
     .subscribe((json)=>{
       return new Promise((resolve,reject)=>{
         return resolve(json);

@@ -1,0 +1,124 @@
+gender,year,title,author,month
+m,2011,Solar,Ian Mcewan,NA
+m,2011,Parrot and Olivier in Amerrica,Peter Carey,NA
+m,2011,Booky wook 2,Russel Brand,NA
+m,2011,American Pastoral,Philip Roth,NA
+m,2011,Snuff,Terry Pratchett,NA
+m,2011,The Fear Index,Robert Harris,NA
+m,2011,The Comfort of Strangers,Ian McEwan,NA
+m,2012,Starter for Ten,David Nichols,NA
+m,2012,The Corrections,Jonathan Franzen,NA
+m,2012,The Understudy,David Nichols,NA
+m,2012,"Bright Lights, Big City",Jay McInerny,NA
+m,2012,Portnoys Complaint,Philip Roth,NA
+m,2012,"Rabbit, Run",John updike,NA
+m,2012,The Counterlife,Philip Roth,NA
+m,2012,The Cement Garden,Ian McEwan,NA
+f,2012,Notes on a scandal,Zoe Heller,NA
+m,2012,The innocent,Ian Mcewan,NA
+m,2012,The Child in Time,Ian Mcewan,NA
+m,2012,The Long Earth,Terry Pratchett/ Stephen Baxter,NA
+m,2012,Slaughter House-Five,Kurt Vonnegut,NA
+m,2012,Do Androids Dream of Electric Sheep,Philip K. Dick,NA
+m,2012,The Heart of the Matter,Grahem Green,NA
+m,2012,Rabbit redux,John updike,NA
+m,2013,I married a communist,Phillip Roth,2
+f,2013,The particular sadness of lemon cake,Aimee Bender,3
+m,2013,The Human Stain,Phillip Roth,3
+m,2013,Death in venice,Thomas Mann,4
+f,2013,The Bell Jar,Sylvia plath,4
+m,2013,Infinite Jest,David Wallace Foster,4
+m,2013,The Sorrow of War,Bao Ninh,6
+m,2013,Exit Ghost,Philip Roth,7
+f,2013,Paradise of the Blind,Duong Thu,7
+m,2013,Ghost Writer,Philip Roth,7
+m,2013,Zukcerman Unbound,Philip Roth,8
+m,2013,The Anatomy Lesson,Philip Roth,8
+m,2013,Prague Orgy,Philip Roth,8
+m,2013,Zen and the Art of Motorcycle Maint,Robert Prsig,8
+m,2013,Post Office,Charles Bukowski,8
+m,2013,The Glass House,Simon Mawker,8
+m,2013,Swanns Way,Proust,9
+m,2013,Ham on Rye,Charles Bukowski,12
+m,2013,Rabbit is Rich,John updike,12
+f,2014,Atlas Shrugged,Ayn Rand,1
+m,2014,Rabbit at Rest,John updike,2
+m,2014,Adventures of Tom Sawyer,Mark Twain,3
+m,2014,The new new thing: A silicon Valley Story,Michael Lewis,3
+m,2014,The world according to Garp,John Irving,3
+m,2014,Heart of Darkness,Joseph Conrad,6
+m,2014,Kill your friends,John Niven,7
+m,2014,The lady and the dog,Anton Pavolich Checkov,8
+m,2014,Permutation City,Greg Egan,9
+m,2014,WE,Yevgeny Zamaytin,10
+m,2014,Naked,David Sedaris,10
+m,2014,The Trial,Franz Kafka,11
+m,2014,"Saturday Night, Sunday Morning",Alan stilitoe,11
+f,2014,Life Class,Pat Barker,11
+m,2014,Three men in a boat,Jerome K jerome,12
+m,2015,Anna Karenina,Leo Tolstoy,12
+m,2015,Go Tell it on the Mountain,James Baldwin,3
+m,2015,Fight Club,Chuck Palahnuik,3
+m,2015,London Fields,Martin Amis,4
+f,2015,To kill a Mocking Bird,Harper Lee,4
+m,2015,The Adventures of Augie March,Saul below,5
+f,2015,Hausfrau,Jill Essbaum,6
+f,2015,The Bell,Iris Murdoch,7
+f,2015,A little life ,Hanya Yanagihara,9
+f,2015,How to be both,Ali Smith,9
+f,2015,My Brilliant Friend,Elena Ferrante,9
+f,2016,Fear of Flying,Erica Jong,1
+m,2016,Some prefer Nettles,Junichiro Tzanizaki,2
+m,2016,An Artist of the floating world,Kazuo Ishiguro,2
+m,2016,The wind up bird chronicles,Haruki Murakami,2
+m,2016,Humboldts gift,Saul Bellow,3
+m,2016,Madamme Bovary,Gustave Flaubert,5
+m,2016,The man who mistook his wife for a hat,Oliver Sachs,7
+m,2016,What are you looking  at?,Will Gompertz,9
+f,2016,The secret life of bees,Sue Monk Kidd,9
+m,2016,All that man is,David sazalay,12
+m,2017,A heart breaking work of staggering genius,David Eggers,1
+m,2017,A cae of exploding mangoes,Mohammed Hanif,2
+f,2017,Wild Swans,Jung Chang,3
+m,2017,Purity,Jonathan Franzen,3
+f,2017,The love affairs of Nathaniel P,Adelle waldmans,4
+f,2017,The Sea The Sea,Iris Murdock,5
+m,2017,Generation X,Douglas Coupland,6
+f,2017,Negroland,Margo Jefferson,7
+f,2017,Coutry Girls,Edna O'biren,8
+f,2017,God of Small things,Arundhati Roy,9
+f,2017,The Power,Naomi alderman,10
+m,2017,Playing to the gallery,Grayson Perry,10
+f,2017,The woman upstairs,Calrie Messud,10
+f,2017,Beaty is Convulsive,Carole Maso,10
+f,2017,Strangleand,Tracy Emin,10
+m,2017,City of Night ,John Rechy,11
+f,2017,Sympathy,Olivia Sujic,12
+f,2017,The Manager's Path,Camille Fournier,8
+m,2018,Capital,John Lancaster,1
+f,2018,Under the net,Iris Murdock,1
+f,2018,Left Hand of Darkness,Ursual K LeGuin,1
+f,2018,Autumn,Ali Smith,1
+m,2018,Patrick Melrose novels,Edward St Aubyn,2
+f,2018,Walk Through Walls: Marina Abaramovic Autobiography,Marina Abaramovic,2
+f,2018,The Dispossesed,Ursual K LeGuin,3
+m,2018,Light Years,James Salter,4
+f,2018,Conversation with friends,Sally Rooney,4
+f,2018,Girl at war,Sara Novic,4
+m,2018,Ways of curating,Hans Ulrich Obrist,4
+f,2018,lulbay,Leila Silmani,5
+m,2018,Jill,Philip Larkin,5
+m,2018,Francis Bacon,David Sylvester,5
+f,2018,The idiot,Elif Batuman,5
+f,2018,Homegoing,Yaa Gyasi,5
+f,2018,How should a person be,Sheila Heiti,6
+m,2018,House of impossible beauties,Joseph Conrad,6
+f,2018,Samurai's Garden,Gails Tsurusaki,7
+m,2018,The unbearable lightness of being,Milan Kundera,7
+m,2018,Interviews with Marcel Duchamp,Pierre Cardanne,7
+f,2018,Sight,Jesse Greengrass,7
+m,2018,Modernists & Mavericks,Martin Gayford,8
+f,2018,Human Relations and other  difficutlties,Mary Kay Wilmers,8
+f,2018,To the lighthouse,Virginia Woolf,8
+f,2018,Lonely City,Olivia Laig,9
+f,2018,Orlando,Virginia Woolf,10
