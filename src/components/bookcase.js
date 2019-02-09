@@ -156,8 +156,8 @@ export default class BookCase extends React.Component {
   }
 
   render = () => {
-    const {books, gender, all, years, stats, showFilters, showStats} = this.state;
-    const filteredBooks = filterHelpers.applyAllFiltersToBooks(this.state.filters, books);
+    const {books, filters, gender, all, years, stats, showFilters, showStats} = this.state;
+    const filteredBooks = filterHelpers.applyAllFiltersToBooks(filters, books);
 
     return (
       <div>
@@ -225,6 +225,7 @@ export default class BookCase extends React.Component {
           <h3>List of Books</h3>
         <BookCase_ >
           {filteredBooks.map((book,i) => <Book book={book} key={book.title} col={i} />)}
+          {filteredBooks.length == 0 && filters.gender == 'other' && <div>Hey - you've probably noticed there's an "Other" gender and I haven't read any books fitting in to that category. I might of done - I've gendered people based on their names (bad) or short bio (better) so maybe I have read books by someone not identifying as male or female.  Certianly some of the themes I've read about are more on the gender spectrum - recently thinking of Olivia Laing's "Lonely City"  and "House of Impossible Beauties" by Joseph Conrad. Would love to have some other suggestions particularly from authors who identify as something other than male and female.</div>}
         </BookCase_ >
       </div>
     )
