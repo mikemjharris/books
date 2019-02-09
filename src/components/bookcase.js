@@ -8,6 +8,9 @@ const BookCase_ = styled.div`
   max-width: 640px;
  `
 
+const Stats = styled.div`
+  background: red;
+`
 const Controls = styled.div`
   max-width: calc(640px - 4em);
   background: hsla(0, 10%, 90%, 1);
@@ -41,9 +44,16 @@ const filterHelpers = new FilterHelpers();
 export default class BookCase extends React.Component {
   constructor(props) {
     super(props);
+
+    const all = 'All';
+    const gender = [all, 'f', 'm', 'other'];
+
     this.state = {
       books: [],
-      filters: {}
+      filters: {},
+      years: [],
+      gender: gender,
+      all: all
     }
   }
 
@@ -58,8 +68,29 @@ export default class BookCase extends React.Component {
     }`
 
     request('/graphql', query).then((data) => {
-      this.setState({books: data.books});
+      const stats = this.createStats(data.books);
+      const years = this.setNosYearsDropdown(data.books);
+      this.setState({
+        books: data.books,
+        stats: stats,
+        years: years
+      });
     })
+  }
+
+  createStats = (books) => {
+
+    console.log(books);
+    return books;
+  }
+
+  setNosYearsDropdown = (books) => {
+    return books.reduce((res, book) => {
+      if (res.indexOf(book.year) ==  -1 ) {
+        res.push(book.year);
+      }
+      return res;
+    }, [this.state.all]);
   }
 
   filterYear = (el) => {
@@ -71,17 +102,9 @@ export default class BookCase extends React.Component {
   }
 
   render = () => {
-    const all = 'All';
-    const books = this.state.books;
-    const filteredBooks = filterHelpers.applyAllFiltersToBooks(this.state.filters, books);
-    const years = books.reduce((res, book) => {
-      if (res.indexOf(book.year) ==  -1 ) {
-        res.push(book.year);
-      }
-      return res;
-    }, [all]);
+    const {books, gender, all, years} = this.state;
 
-    const gender = [all, 'f', 'm', 'other'];
+    const filteredBooks = filterHelpers.applyAllFiltersToBooks(this.state.filters, books);
 
     return (
       <div>
@@ -114,6 +137,9 @@ export default class BookCase extends React.Component {
             <span className="stats">{filteredBooks.length}</span>
           </div>
         </Controls>
+        <Stats>
+          <p>Stats</p>
+        </Stats>
         <BookCase_ >
           {filteredBooks.map((book,i) => <Book book={book} key={book.title} col={i} />)}
         </BookCase_ >
