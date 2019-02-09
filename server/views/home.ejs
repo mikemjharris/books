@@ -14,14 +14,13 @@
 <body>
   <section>
 		<h1><%= data.title %></h1>
-    <p>Project that shows all the books i've read since 2012.  Was setup to experiment with graphql.</p>
-    <p>
-     <a href="/graphql?query=%7B%0A%09books%20%7B%0A%20%20%20%20title%0A%20%20%20%20author%0A%20%20%20%20gender%0A%20%20%20%20year%0A%20%20%20%20month%0A%20%20%7D%0A%7D%0A">Visit here for the graphql end point and list of books</a>
-    </p>
+     
+     
+    <p style="max-width: 640px; line-height: 1.5">Project that shows all the books i've read since 2012.
+    Wrote about making it in two blog posts: <a href="https://blog.mikemjharris.com/posts/books-project-pt1" target="_blank">The first</a> about the backend and graphql.  <a href="https://blog.mikemjharris.com/posts/books-project-pt1" target="_blank">The second</a> about the React front end and styled components</p>
     <div id="app"></div>
     <p>
-      I wrote up a bit about this project in my blog.  You can read that 
-     <a href="https://blog.mikemjharris.com/posts/books-project-pt1" target="_blank">here</a>
+     <a href="/graphql?query=%7B%0A%09books%20%7B%0A%20%20%20%20title%0A%20%20%20%20author%0A%20%20%20%20gender%0A%20%20%20%20year%0A%20%20%20%20month%0A%20%20%7D%0A%7D%0A">Visit here for the graphql end point and list of books</a>
     </p>
   </section>
 		<%- include('partials/footer') %>
