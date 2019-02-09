@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const BookElement = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 0.5em 1em;
+  justify-content: space-between;
   border: 1px solid black;
   background: hsla(${props => props.col}, 60%, 60%,1);;
  `
@@ -22,8 +26,8 @@ export default class Book extends React.Component {
 
     return (
       <BookElement col={ col * 13 } >
-        <span>{book.month} / {book.year}</span>
-        <p>{book.title } : {book.author}</p>
+        <div>{book.title } : {book.author} ({book.gender})</div>
+        <div>{book.year}</div>
       </BookElement>
     )
   }

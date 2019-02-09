@@ -3,18 +3,36 @@ import Book from './book';
 import styled from 'styled-components';
 import {request} from 'graphql-request';
 import FilterHelpers from '../filters/filter';
+
 const BookCase_ = styled.div`
-  background: red
+  max-width: 640px;
  `
 
 const Controls = styled.div`
+  max-width: calc(640px - 4em);
   background: hsla(0, 10%, 90%, 1);
   padding: 2em;
-  label {
+  label, span {
     padding: 0.5em 1em 0.5em 0em;
   }
   select {
     margin: 0.5em;
+    padding: 0.25em;
+    min-width: 75px;
+  }
+  .grp {
+    max-width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .stats {
+    min-width: 75px;
+    text-align: center;
+    background: hsla(0, 10%, 50%, 1);
+    font-weight: bold;
+    margin: 0.5em;
+    padding: 0.25em;
   }
  `
 
@@ -91,11 +109,9 @@ export default class BookCase extends React.Component {
               }
             </select>
           </div>
-          <div>
-            <p>Stats for filter</p>
-            <div>
-             <p>Total books: {filteredBooks.length}</p>
-            </div>
+          <div className='grp'>
+            <span>No books for filter:</span>
+            <span className="stats">{filteredBooks.length}</span>
           </div>
         </Controls>
         <BookCase_ >
