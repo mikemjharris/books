@@ -4,8 +4,10 @@ import styled from 'styled-components';
 import {request} from 'graphql-request';
 import FilterHelpers from '../filters/filter';
 
+const maxWidth = "640px";
+
 const BookCase_ = styled.div`
-  max-width: 640px;
+  max-width: ${ maxWidth };
  `
 const sectionCss = `
   &.show {
@@ -29,7 +31,7 @@ const sectionCss = `
   padding: 0 2em 1em 2em;
   overflow: hidden;
   height: 3em;
-  max-width: calc(640px - 4em);
+  max-width: calc(${ maxWidth } - 4em);
 `
 const Stats = styled.div`
   ${ sectionCss }
@@ -37,6 +39,13 @@ const Stats = styled.div`
   th,td {
     padding: 0.2em 0.4em;
     text-align: right;
+    min-width: 50px;
+  }
+  tr:nth-child(odd) {
+    background: hsla(120, 50%, 90%, 1);
+  }
+  tr:nth-child(even) {
+    background: hsla(120, 50%, 80%, 1);
   }
   td:first-child, th:first-child {
     text-align: left;
@@ -62,7 +71,7 @@ const Controls = styled.div`
   .stats {
     min-width: 75px;
     text-align: center;
-    background: hsla(0, 10%, 50%, 1);
+    background: hsla(120, 50%, 70%, 1);
     font-weight: bold;
     margin: 0.5em;
     padding: 0.25em;
@@ -188,10 +197,10 @@ export default class BookCase extends React.Component {
            <tbody>
             {
               <tr>
-                <th>Year\Gender</th>
+                <th></th>
               {
                   gender.map((g) => {
-                    return (<th>{g}</th>)
+                    return (<th>{g.toUpperCase()}</th>)
                   })
               }
               </tr>
