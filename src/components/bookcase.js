@@ -29,7 +29,7 @@ const sectionCss = `
     transform: rotate(0deg);
   }
   padding: 0 2em 1em 2em;
-  overflow: hidden;
+  overflow-x: hidden;
   height: 3em;
   max-width: calc(${ maxWidth } - 4em);
 `
@@ -39,7 +39,7 @@ const Stats = styled.div`
   th,td {
     padding: 0.2em 0.4em;
     text-align: right;
-    min-width: 50px;
+    min-width: 40px;
   }
   tr:nth-child(odd) {
     background: hsla(120, 50%, 90%, 1);
