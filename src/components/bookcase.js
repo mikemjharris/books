@@ -86,13 +86,23 @@ export default class BookCase extends React.Component {
 
     const all = 'All';
     const gender = [all, 'f', 'm', 'other'];
+    const query = new URLSearchParams(window.location.search);
+    let showFilters = false;
+
+    if (window.location.search != "") {
+      showFilters = true;
+    }
 
     this.state = {
       books: [],
-      filters: {},
+      filters: {
+       year: query.get('year'),
+       gender: query.get('gender')
+      },
       years: [],
       gender: gender,
-      all: all
+      all: all,
+      showFilters: showFilters
     }
   }
 
@@ -139,12 +149,25 @@ export default class BookCase extends React.Component {
     }, [this.state.all]);
   }
 
+  setQueryParams = () => {
+    const query = new URLSearchParams();
+    const filters = this.state.filters;
+
+    for (let filter in filters) {
+      query.set(filter, filters[filter] || this.state.all);
+     }
+    if (history.pushState) {
+      const newUrl =  window.location.origin + "?" + query.toString()
+      window.history.pushState({path:newUrl},'',newUrl);
+    }
+  }
+
   filterYear = (el) => {
-    this.setState({filters: { ...this.state.filters, year: parseInt(el.target.value) }});
+    this.setState({filters: { ...this.state.filters, year: parseInt(el.target.value) }}, this.setQueryParams);
   }
 
   filterGender = (el) => {
-    this.setState({filters: { ...this.state.filters, gender: el.target.value }});
+    this.setState({filters: { ...this.state.filters, gender: el.target.value }}, this.setQueryParams);
   }
 
   toggleStats = () => {
@@ -167,9 +190,14 @@ export default class BookCase extends React.Component {
             <label>By Year</label>
             <select onChange={ this.filterYear }>
               { years.map((year) => {
+                    let selected = '';
+                    if ( year == filters.year) {
+                      selected = true
+                    }
+
                     return(
-                      <option value={year}>{year}</option>
-                  )
+                      <option value={year} selected={selected}>{year}</option>
+                    )
                 })
               }
             </select>
@@ -178,8 +206,12 @@ export default class BookCase extends React.Component {
             <label>By Gender</label>
             <select onChange={ this.filterGender}>
               { gender.map((gender) => {
+                    let selected = '';
+                    if ( gender == filters.gender) {
+                      selected = true
+                    }
                     return(
-                      <option value={gender}>{gender}</option>
+                      <option value={gender} selected={selected}>{gender}</option>
                     )
                 })
               }
