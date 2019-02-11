@@ -29,7 +29,7 @@ const sectionCss = `
     transform: rotate(0deg);
   }
   padding: 0 2em 1em 2em;
-  overflow-x: hidden;
+  overflow: hidden;
   height: 3em;
   max-width: calc(${ maxWidth } - 4em);
 `
