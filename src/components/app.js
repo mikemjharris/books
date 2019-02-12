@@ -4,7 +4,6 @@ import BookCase from './bookcase';
 
 export default class AppController {
   constructor() {
-    console.log('here');
     this.mountComponent();
   }
 

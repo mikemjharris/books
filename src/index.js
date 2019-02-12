@@ -1,4 +1,3 @@
-console.log('Setup');
 import React from 'react';
 
 import AppController from './components/app.js'
