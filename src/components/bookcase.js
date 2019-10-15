@@ -85,7 +85,7 @@ export default class BookCase extends React.Component {
     super(props);
 
     const all = 'All';
-    const gender = [all, 'f', 'm', 'other'];
+    const gender = [all, 'f', 'm', 'NB'];
     const query = new URLSearchParams(window.location.search);
     let showFilters = false;
 
