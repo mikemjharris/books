@@ -146,7 +146,7 @@ export default class BookCase extends React.Component {
         res.push(book.year);
       }
       return res;
-    }, [this.state.all]);
+    }, []).concat([this.state.all]);
   }
 
   setQueryParams = () => {
