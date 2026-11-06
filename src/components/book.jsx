@@ -7,7 +7,7 @@ const BookElement = styled.div`
   padding: 0.5em 1em;
   justify-content: space-between;
   border: 1px solid black;
-  background: hsla(${props => props.col}, 60%, 60%,1);;
+  background: hsla(${props => props.$col}, 60%, 60%, 1);
  `
 
 export default class Book extends React.Component {
@@ -25,7 +25,7 @@ export default class Book extends React.Component {
     const col = this.state.col;
 
     return (
-      <BookElement col={ col * 13 } >
+      <BookElement $col={ col * 13 } >
         <div>{book.title } : {book.author} ({book.gender})</div>
         <div>{book.year}</div>
       </BookElement>

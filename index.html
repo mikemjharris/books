@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Books</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="All the books Mike Harris has read since 2011">
+    <link rel="icon" href="/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  </head>
+  <body>
+    <section>
+      <h1>Books Project</h1>
+      <p style="max-width: 640px; line-height: 1.5">
+        Project that shows all the books I've read since 2011. Wrote about making it in two blog
+        posts: <a href="https://blog.mikemjharris.com/posts/books-project-pt1" target="_blank">the first</a>
+        about the backend and GraphQL, <a href="https://blog.mikemjharris.com/posts/books-project-pt2" target="_blank">the second</a>
+        about the React front end and styled components. It's now a static site that reads the list
+        straight from a published Google Sheet.
+      </p>
+      <div id="app"></div>
+      <p><a id="data-link" href="#">The list of books as CSV</a></p>
+    </section>
+    <footer class="footer">
+      <p>A project by <a href="https://www.mikemjharris.com">mikemjharris</a>.</p>
+      <p>Code can be found <a href="https://github.com/mikemjharris/books">on github</a>.</p>
+    </footer>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
