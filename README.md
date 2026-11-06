@@ -15,5 +15,5 @@ npm run dev      # http://localhost:5173
 npm run build    # static files in dist/
 ```
 
-Pushing to `master` deploys to S3 + CloudFront with GitHub Actions
+Pushing to `main` deploys to S3 + CloudFront with GitHub Actions
 (infrastructure in [mikemjharris/infra](https://github.com/mikemjharris/infra)).
