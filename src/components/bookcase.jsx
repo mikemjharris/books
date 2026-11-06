@@ -1,8 +1,8 @@
 import React from 'react';
-import Book from './book';
+import Book from './book.jsx';
 import styled from 'styled-components';
-import {request} from 'graphql-request';
 import FilterHelpers from '../filters/filter';
+import { fetchBooks } from '../data.js';
 
 const maxWidth = "640px";
 
@@ -107,24 +107,17 @@ export default class BookCase extends React.Component {
   }
 
   componentDidMount() {
-    const query = `{books{
-          title
-          author
-          gender
-          year
-          month
-        }
-    }`
-
-    request('/graphql', query).then((data) => {
-      const years = this.setNosYearsDropdown(data.books);
-      const stats = this.createStats(data.books, years, this.state.gender);
-      this.setState({
-        books: data.books,
-        stats: stats,
-        years: years
-      });
-    })
+    fetchBooks()
+      .then((books) => {
+        const years = this.setNosYearsDropdown(books);
+        const stats = this.createStats(books, years, this.state.gender);
+        this.setState({
+          books: books,
+          stats: stats,
+          years: years
+        });
+      })
+      .catch((error) => this.setState({ error: error.message }));
   }
 
   createStats = (books, years, genders) => {
@@ -163,7 +156,7 @@ export default class BookCase extends React.Component {
   }
 
   filterYear = (el) => {
-    this.setState({filters: { ...this.state.filters, year: parseInt(el.target.value) }}, this.setQueryParams);
+    this.setState({filters: { ...this.state.filters, year: el.target.value }}, this.setQueryParams);
   }
 
   filterGender = (el) => {
@@ -188,33 +181,14 @@ export default class BookCase extends React.Component {
           <h3 onClick={this.toggleSection}>Filters<span>^</span></h3>
           <div className='grp'>
             <label>By Year</label>
-            <select onChange={ this.filterYear }>
-              { years.map((year) => {
-                    let selected = '';
-                    if ( year == filters.year) {
-                      selected = true
-                    }
-
-                    return(
-                      <option value={year} selected={selected}>{year}</option>
-                    )
-                })
-              }
+            <select onChange={ this.filterYear } value={ filters.year || all }>
+              { years.map((year) => <option value={year} key={year}>{year}</option>) }
             </select>
           </div>
           <div className='grp'>
             <label>By Gender</label>
-            <select onChange={ this.filterGender}>
-              { gender.map((gender) => {
-                    let selected = '';
-                    if ( gender == filters.gender) {
-                      selected = true
-                    }
-                    return(
-                      <option value={gender} selected={selected}>{gender}</option>
-                    )
-                })
-              }
+            <select onChange={ this.filterGender } value={ filters.gender || all }>
+              { gender.map((g) => <option value={g} key={g}>{g}</option>) }
             </select>
           </div>
           <div className='grp'>
@@ -232,7 +206,7 @@ export default class BookCase extends React.Component {
                 <th></th>
               {
                   gender.map((g) => {
-                    return (<th>{g.toUpperCase()}</th>)
+                    return (<th key={g}>{g.toUpperCase()}</th>)
                   })
               }
               </tr>
@@ -240,11 +214,11 @@ export default class BookCase extends React.Component {
           { stats &&
             years.map((year) => {
               return (
-                 <tr>
+                 <tr key={year}>
                   <td>{ year }</td>
                   {
                     gender.map((g) => {
-                      return (<td>{stats[year][g]}</td>)
+                      return (<td key={g}>{stats[year][g]}</td>)
                     })
                  }</tr>
               )
@@ -255,8 +229,9 @@ export default class BookCase extends React.Component {
 
         </Stats>
           <h3>List of Books</h3>
+          {this.state.error && <p>{this.state.error}</p>}
         <BookCase_ >
-          {filteredBooks.map((book,i) => <Book book={book} key={book.title} col={i} />)}
+          {filteredBooks.map((book,i) => <Book book={book} key={`${book.year}-${book.title}`} col={i} />)}
           {filteredBooks.length == 0 && filters.gender == 'other' && <div>Hey - you've probably noticed there's an "Other" gender and I haven't read any books fitting in to that category. I might of done - I've gendered people based on their names (bad) or short bio (better) so maybe I have read books by someone not identifying as male or female.  Certianly some of the themes I've read about are more on the gender spectrum - recently thinking of Olivia Laing's "Lonely City"  and "House of Impossible Beauties" by Joseph Conrad. Would love to have some other suggestions particularly from authors who identify as something other than male and female.</div>}
         </BookCase_ >
       </div>
